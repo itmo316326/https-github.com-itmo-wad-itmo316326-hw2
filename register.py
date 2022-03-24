@@ -15,7 +15,7 @@ def register():
             client = pymongo.MongoClient(host='localhost', port=27017)
             db = client.mydb
             collection = db.user
-            user_is_online = collection.insert({"username":username,"password":password})
+            user_is_online = collection.insert_one({"username":username,"password":password})
             if user_is_online:
                 session['username'] = username
                 return redirect(" http://localhost:5000/profile")
