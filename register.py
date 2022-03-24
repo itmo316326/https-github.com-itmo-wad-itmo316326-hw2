@@ -2,7 +2,7 @@ from flask import Flask,request,redirect,session,render_template
 import pymongo
 
 app = Flask(__name__)
-@app.route("/user",methods=['GET','POST'])
+@app.route("/registeruser",methods=['GET','POST'])
 def register():
     user_is_online = session.get('username')
     if user_is_online:
@@ -20,8 +20,8 @@ def register():
                 session['username'] = username
                 return redirect(" http://localhost:5000/profile")
             else:
-                message = useronline
-                return render_template('login.html',message=message)
+                message = 'hash value is null'
+                return render_template('register.html',message=message)
 
 if __name__ == '__main__':
     app.run(debug=True)
