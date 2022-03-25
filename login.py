@@ -32,7 +32,7 @@ def register():
             session['username'] = username
             return redirect(url_for("http://localhost:5000/profile"))
         else:
-            message = 'User not registered'
+            message = 'User registration failed'
             return render_template('register.html', message=message)
     return render_template('register.html')
 
