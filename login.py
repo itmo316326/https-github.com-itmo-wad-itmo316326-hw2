@@ -15,7 +15,7 @@ def login():
         is_user_online = db.users.find_one({"username": username, "password": password})
         if is_user_online:
             session['username'] = username
-            return redirect(url_for("http://localhost:5000/profile"))
+            return redirect(url_for("profile"))
         else:
             message = "Failed Login"
             return render_template('login.html', message=message)
@@ -30,7 +30,7 @@ def register():
         user_is_online = db.insert_one({"username": username, "password": password})
         if user_is_online:
             session['username'] = username
-            return redirect(url_for("http://localhost:5000/profile"))
+            return redirect(url_for("profile"))
         else:
             message = 'User registration failed'
             return render_template('register.html', message=message)
@@ -40,7 +40,7 @@ def register():
 @app.route("/profile")
 def profile():
     if session.get("username"):
-        return redirect(url_for("http://localhost:5000/profile"))
+        return return redirect(url_for("profile"))
     else:
         return render_template('login.html')
     return render_template('profile.html')
