@@ -2,7 +2,7 @@ from flask import Flask,request,render_template,redirect, session
 import pymongo
 
 app = Flask(__name__)
-@app.route("/user",methods=['GET','POST'])
+@app.route("/login",methods=['GET','POST'])
 def login():
     if request.method =='POST':
         username = request.form['username']
