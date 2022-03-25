@@ -40,7 +40,7 @@ def register():
 @app.route("/profile")
 def profile():
     if session.get("username"):
-        return redirect(url_for("http://localhost:5000/profile/"))
+        return redirect(url_for("http://localhost:5000/profile"))
     else:
         return render_template('login.html')
     return render_template('profile.html')
